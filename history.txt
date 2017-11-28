@@ -1,0 +1,25 @@
+16/11/2017
+
+Updated to R-3.4.2-2 from EPEL and shiny-server-1.5.5.872-rh5-x86_64.rpm
+RPMs are first downloaded using download.sh and then used in Docker build.
+Shadow server is no longer used because it is not visible from DMZ.
+Instead RPMs kept locally in "epel" directory. Therefore there is no guarantee
+the RPMs can be downloaded in future.
+
+====================================================================================================
+27/10/2015
+
+Fixed 2/ below by copying relevant R rpms to shadow and fetching them during the build process.
+
+====================================================================================================
+19/10/2015
+
+Fixed 1/ below by uninstalling some R packages and installing them using rpm.
+
+====================================================================================================
+19/10/2015
+
+Initial working version. The problems are 
+1/ Installing R packages from EPEL directly using yum leaves somewhat incorrect directory structure.
+2/ The old packages are not archived on EPEL so there is no way to get older version.
+In order to capture the state and be reproducible we need to store the R packages.

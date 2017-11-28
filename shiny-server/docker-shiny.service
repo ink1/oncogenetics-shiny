@@ -1,0 +1,13 @@
+[Unit]
+Description=Oncogenetics Shiny Service
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a shiny
+ExecStop=/usr/bin/docker stop -t 5 shiny
+
+[Install]
+WantedBy=default.target
+
